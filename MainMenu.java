@@ -1,7 +1,7 @@
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Game2048 implements ActionListener {
+public class MainMenu implements ActionListener {
     private JButton buttonStart;
     private JButton buttonExit;
     private JFrame frame;
