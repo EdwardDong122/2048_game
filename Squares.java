@@ -3,6 +3,9 @@ import java.awt.*;
 public class Squares {
     int value;
     Color colour;
+    
+/* the square is coloured based on the value of the square
+*/
     public void setColor()
     {
         if ( this.getValue() == 2 )
@@ -54,6 +57,8 @@ public class Squares {
         this.setColor();
         return colour;
     }
+    /* basic/ default value
+    */
     public Squares()
     {
         value = 0;
