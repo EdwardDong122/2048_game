@@ -2,7 +2,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+/* main method
+*/
 public class MainGame extends JPanel implements KeyListener
 {
     MainGrid grid = new MainGrid();
@@ -12,38 +13,41 @@ public class MainGame extends JPanel implements KeyListener
     static JFrame frame = new JFrame("2048");
 
     String gameGrid = grid.toString();
+    
+/* prints out score, basic instructions and clears the board when the game is over
+*/
 
-
-    public void paint(Graphics g)
+    public void paint(Graphics a)
     {
-        super.paint(g);
-        Graphics2D g2 = (Graphics2D)g;
-        g2.drawString( "2048", 400, 60 );
-        g2.drawString( "Score: " + grid.getScore(), 200 - 4 * String.valueOf( grid.getScore() ).length(), 40 );
-        g2.drawString( "Highest Tile: " + grid.getHighestValue(), 280 - 4 * String.valueOf( grid.getHighestValue() ).length(), 40 );
-        g2.drawString( "Press Enter to Start", 210, 315 );
-        g2.drawString( "Use 'wasd' or Arrow Keys to move", 250, 500 );
+        super.paint(a);
+        Graphics2D a2 = (Graphics2D)a;
+        a2.drawString( "2048", 400, 60 );
+        a2.drawString( "Score: " + grid.getScore(), 200 - 4 * String.valueOf( grid.getScore() ).length(), 40 );
+        a2.drawString( "Highest Tile: " + grid.getHighestValue(), 280 - 4 * String.valueOf( grid.getHighestValue() ).length(), 40 );
+        a2.drawString( "Press Enter to Start", 210, 315 );
+        a2.drawString( "Use 'wasd' or Arrow Keys to move", 250, 500 );
 
 
         if ( grid.gameOver() )
         {
-            g2.setColor( Color.gray );
-            g2.fillRect( 140, 50, 250, 250 );
+            a2.setColor( Color.gray );
+            a2.fillRect( 140, 50, 250, 250 );
             for ( int i = 0; i < 4; i++ )
             {
                 for ( int j = 0; j < 4; j++ )
                 {
-                    g2.setColor( Color.RED );
-                    g2.fillRoundRect( j * 60 + 150, i * 60 + 60, 50, 50, 5, 5 );
-                    g2.setColor( Color.black );
-                    g.drawString( "GAME", j * 60 + 160, i * 60 + 75 );
-                    g.drawString( "OVER", j * 60 + 160, i * 60 + 95 );
+                    a2.setColor( Color.RED );
+                    a2.fillRoundRect( j * 60 + 150, i * 60 + 60, 50, 50, 5, 5 );
+                    a2.setColor( Color.black );
+                    a.drawString( "GAME", j * 60 + 160, i * 60 + 75 );
+                    a.drawString( "OVER", j * 60 + 160, i * 60 + 95 );
                 }
             }
         }
     }
 
-
+/* sets the size of the GUI
+*/
     public static void GUI()
     {
         frame.addKeyListener(newGame);
@@ -52,12 +56,8 @@ public class MainGame extends JPanel implements KeyListener
         frame.setVisible( true );
     }
 
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
+/* performs an action when a key is clicked
+*/
     @Override
     public void keyPressed( KeyEvent e )
 
@@ -98,26 +98,22 @@ public class MainGame extends JPanel implements KeyListener
             frame.repaint();
         }
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-
-    public void drawTiles( Graphics g, Squares square, int x, int y )
+/* draws the tiles, board and colours it
+*/
+    public void drawTiles( Graphics a, Squares square, int x, int y )
     {
         int tileValue = square.getValue();
         int length = String.valueOf( tileValue ).length();
-        Graphics2D g2 = (Graphics2D)g;
-        g2.setColor( Color.lightGray );
-        g2.fillRoundRect( x, y, 50, 50, 5, 5 );
-        g2.setColor( Color.black );
+        Graphics2D a2 = (Graphics2D)a;
+        a2.setColor( Color.lightGray );
+        a2.fillRoundRect( x, y, 50, 50, 5, 5 );
+        a2.setColor( Color.black );
         if ( tileValue > 0 )
         {
-            g2.setColor(square.getColor());
-            g2.fillRoundRect( x, y, 50, 50, 5, 5 );
-            g2.setColor( Color.black );
-            g.drawString( "" + tileValue, x + 25 - 3 * length, y + 25 );
+            a2.setColor(square.getColor());
+            a2.fillRoundRect( x, y, 50, 50, 5, 5 );
+            a2.setColor( Color.black );
+            a.drawString( "" + tileValue, x + 25 - 3 * length, y + 25 );
         }
     }
 
