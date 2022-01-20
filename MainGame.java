@@ -1,11 +1,17 @@
+/*
+* Authors: Edward Dong and Angelina Chen
+* Class Name: MainGame.java
+* Description of class: Sets up the game board, score, and keys that are needed to play the game
+*/
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/* main method
+/* calls and adds other classes to the main game
 */
 public class MainGame extends JPanel implements KeyListener
 {
+    // declare variables
     MainGrid grid = new MainGrid();
 
     static MainGame newGame = new MainGame();
@@ -50,6 +56,7 @@ public class MainGame extends JPanel implements KeyListener
 */
     public static void GUI()
     {
+        // KeyListener receives keyboard events (keystrokes)
         frame.addKeyListener(newGame);
         frame.getContentPane().add(newGame);
         frame.setSize( 850, 600 );
@@ -62,6 +69,7 @@ public class MainGame extends JPanel implements KeyListener
     public void keyPressed( KeyEvent e )
 
     {
+        // when it gets a keystorke, an action happens and changes the grid
         if ( e.getKeyChar() == 'w' || e.getKeyCode() == KeyEvent.VK_UP )
         {
             grid.upKey();
@@ -116,7 +124,8 @@ public class MainGame extends JPanel implements KeyListener
             a.drawString( "" + tileValue, x + 25 - 3 * length, y + 25 );
         }
     }
-
+    
+// main method
     public static void main( String[] args )
     {
         GUI();
