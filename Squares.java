@@ -1,3 +1,8 @@
+/*
+* Authors: Edward Dong and Angelina Chen
+* Class Name: Squares.java
+* Description of class: Fills the squares with colours depending on the value.
+*/
 import java.awt.*;
 
 public class Squares {
