@@ -1,0 +1,7 @@
+RULES
+First, choose a grid size (ranging from 3x3-8x8)
+If a grid size is not chosen, the program will default to 4x4.
+Next, you may click start.
+Your goal is to combine squares of equal value, and try to get to 2048 
+before you run out of space to move.
+You may use the arrow keys to move, and press 'Enter' to restart
