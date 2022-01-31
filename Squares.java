@@ -1,17 +1,21 @@
 /*
-* Authors: Edward Dong and Angelina Chen
-* Class Name: Squares.java
-* Description of class: Fills the squares with colours depending on the value.
-*/
+Authors: Edward Dong and Angelina Chen
+Class name: Squares.java
+Description: This class determines the logistics of each individual square in the grid. For example, it determines
+the colour of the square depending on its value, and sets the value as well.
+ */
 import java.awt.*;
 
 public class Squares {
+    // state variables
     int value;
     Color colour;
-    
-/* the square is coloured based on the value of the square
-*/
-    public void setColor()
+
+    /**
+     * A setter method that returns the colour when called
+     * @return void
+     */
+    public void setColour()
     {
         if ( this.getValue() == 2 )
         {
@@ -58,32 +62,54 @@ public class Squares {
             colour = new Color(255, 255, 255);
         }
     }
-    public Color getColor() {
-        this.setColor();
+    /**
+     * A getter method that returns the colour when called
+     * @return colour
+     */
+    public Color getColour() {
+        this.setColour();
         return colour;
     }
-    /* basic/ default value
-    */
+
+    /**
+     * method that sets the value of the variable
+     */
     public Squares()
     {
         value = 0;
     }
 
+    /**
+     * resets the value of the variable
+     * @param n
+     */
     public Squares(int n)
     {
         value = n;
     }
 
+    /**
+     * A getter method that returns the value when called
+     * @return value
+     */
     public int getValue()
     {
         return value;
     }
 
+    /**
+     * Another method that sets the value
+     * @param value
+     */
     public void setValue(int value)
     {
         this.value = value;
     }
 
+    /**
+     * A getter method that returns the value when called
+     * @return " " + value
+     */
     public String toString()
     {
         return "" + value;
